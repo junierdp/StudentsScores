@@ -3,6 +3,7 @@
   <persistence-unit name="StudentsScoresPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>StudentModel.Student</class>
+    <class>SubModel.Subject</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/DBStudentsScores?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
