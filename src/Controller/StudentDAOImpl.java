@@ -40,8 +40,12 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Override
-    public void delete(Student m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Student s) {
+        em = emf.createEntityManager();
+        s = em.find(Student.class, s.getStudentID());
+        em.getTransaction().begin();
+        em.remove(s);
+        em.getTransaction().commit();
     }
 
     @Override
