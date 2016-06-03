@@ -35,7 +35,7 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "StudentID")
-    private Integer studentID;
+    private int studentID;
     @Basic(optional = false)
     @Column(name = "FirstName")
     private String firstName;
@@ -51,11 +51,15 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(Integer studentID) {
+    public Student(int studentID) {
+        this.studentID = studentID;
+    }
+    
+    public Student(int studentID, String firstName, String lastName) {
         this.studentID = studentID;
     }
 
-    public Student(Integer studentID, String firstName, String lastName, String enrollment) {
+    public Student(int studentID, String firstName, String lastName, String enrollment) {
         this.studentID = studentID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,11 +72,11 @@ public class Student implements Serializable {
         this.enrollment = enrollment;
     }
 
-    public Integer getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(Integer studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
