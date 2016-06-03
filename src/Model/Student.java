@@ -57,6 +57,8 @@ public class Student implements Serializable {
     
     public Student(int studentID, String firstName, String lastName) {
         this.studentID = studentID;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Student(int studentID, String firstName, String lastName, String enrollment) {
