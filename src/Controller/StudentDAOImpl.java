@@ -1,4 +1,4 @@
-package Controllers;
+package Controller;
 
 import Interfaces.StudentDAO;
 import Model.Student;
