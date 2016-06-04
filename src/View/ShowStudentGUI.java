@@ -260,7 +260,7 @@ public class ShowStudentGUI extends javax.swing.JInternalFrame {
                 DefaultTableModel model = new DefaultTableModel();
                 model.setColumnIdentifiers(new Object[]{"ID", "First Name", "Last Name", "Enrollment"});
                 StudentDAOImpl dao = new StudentDAOImpl();
-                ArrayList<Student> list = (ArrayList<Student>) dao.searchForEnrollment(txtSearch.getText());
+                List<Student> list = (List<Student>) dao.searchForEnrollment(txtSearch.getText());
                 Object[] o = new Object[model.getColumnCount()];
                 for(int i = 0; i < list.size(); i++){
                     o[0] = list.get(i).getStudentID();
@@ -281,7 +281,7 @@ public class ShowStudentGUI extends javax.swing.JInternalFrame {
                 DefaultTableModel model = new DefaultTableModel();
                 model.setColumnIdentifiers(new Object[]{"ID", "First Name", "Last Name", "Enrollment"});
                 StudentDAOImpl dao = new StudentDAOImpl();
-                ArrayList<Student> list = (ArrayList<Student>) dao.search(Integer.parseInt(txtSearch.getText()));
+                List<Student> list = (List<Student>) dao.search(Integer.parseInt(txtSearch.getText()));
                 Object[] o = new Object[model.getColumnCount()];
                 for(int i = 0; i < list.size(); i++){
                     o[0] = list.get(i).getStudentID();
