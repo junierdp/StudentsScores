@@ -132,7 +132,9 @@ public class MainStudentsScoresGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiAddSubjectActionPerformed
 
     private void jmiShowSubjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiShowSubjectsActionPerformed
-        
+        ShowSubjectGUI ssgg = new ShowSubjectGUI();
+        jdpDesktop.add(ssgg);
+        ssgg.show();
     }//GEN-LAST:event_jmiShowSubjectsActionPerformed
 
     private void jmiAddScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddScoreActionPerformed

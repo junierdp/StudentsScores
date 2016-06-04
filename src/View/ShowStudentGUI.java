@@ -235,7 +235,7 @@ public class ShowStudentGUI extends javax.swing.JInternalFrame {
         if(rowSelected >= 0){
             int confirmJOP = JOptionPane.showConfirmDialog(null, "Are you sure that you want"
                     + " to delete the student: " + jtStudents.getValueAt(rowSelected, 3), 
-                    "Confirmación",JOptionPane.YES_NO_OPTION);
+                    "Confirm",JOptionPane.YES_NO_OPTION);
             if(confirmJOP == 0){
                 Student s = new Student(Integer.parseInt(jtStudents.getValueAt(rowSelected, 0).toString()),
                         jtStudents.getValueAt(rowSelected, 1).toString(), jtStudents.getValueAt(rowSelected, 2).toString(),
