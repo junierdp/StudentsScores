@@ -25,7 +25,10 @@ public class SubjectDAOImpl implements SubjectDAO{
 
     @Override
     public List<Subject> search(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        q = em.createQuery("SELECT s FROM Subject s WHERE s.subjectID=:id");
+        q.setParameter("id", id);
+        return q.getResultList();
     }
 
     @Override
@@ -36,13 +39,22 @@ public class SubjectDAOImpl implements SubjectDAO{
     }
 
     @Override
-    public void delete(Subject m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Subject s) {
+        em = emf.createEntityManager();
+        s = em.find(Subject.class, s.getSubjectID());
+        em.getTransaction().begin();
+        em.remove(s);
+        em.getTransaction().commit();
     }
 
     @Override
-    public void update(Subject m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    public void update(Subject s) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.createNamedQuery("Subject.update", Subject.class)
+                .setParameter("name", s.getName())
+                .setParameter("subjectID", s.getSubjectID())
+                .executeUpdate();
+        em.getTransaction().commit();
+    }   
 }
