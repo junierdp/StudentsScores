@@ -30,7 +30,9 @@ public class SubjectDAOImpl implements SubjectDAO{
 
     @Override
     public List<Subject> showAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        q = em.createNamedQuery("Subject.findAll");
+        return q.getResultList();
     }
 
     @Override
