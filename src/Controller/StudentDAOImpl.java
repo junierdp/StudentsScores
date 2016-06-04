@@ -16,7 +16,10 @@ public class StudentDAOImpl implements StudentDAO{
 
     @Override
     public List<Student> searchForEnrollment(String enrollment) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        q = em.createQuery("SELECT s FROM Student s WHERE s.enrollment=:enrollment");
+        q.setParameter("enrollment", enrollment);
+        return q.getResultList();
     }
 
     @Override
