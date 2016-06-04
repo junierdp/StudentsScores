@@ -28,7 +28,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Student.findByStudentID", query = "SELECT s FROM Student s WHERE s.studentID = :studentID"),
     @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName = :firstName"),
     @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName = :lastName"),
-    @NamedQuery(name = "Student.findByEnrollment", query = "SELECT s FROM Student s WHERE s.enrollment = :enrollment")})
+    @NamedQuery(name = "Student.findByEnrollment", query = "SELECT s FROM Student s WHERE s.enrollment = :enrollment"),
+    @NamedQuery(name = "Student.update", query = "UPDATE Student s SET s.firstName = :firstName, s.lastName = :lastName WHERE s.studentID = :studentID")})
 public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
