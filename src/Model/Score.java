@@ -50,6 +50,12 @@ public class Score implements Serializable {
         this.score = score;
     }
 
+    public Score(Student studentID, Subject subjectID, int score){
+        this.studentID = studentID;
+        this.subjectID = subjectID;
+        this.score = score;
+    }
+    
     public Integer getScoreID() {
         return scoreID;
     }

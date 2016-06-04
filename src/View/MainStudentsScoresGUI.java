@@ -138,7 +138,9 @@ public class MainStudentsScoresGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiShowSubjectsActionPerformed
 
     private void jmiAddScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAddScoreActionPerformed
-        
+        RegisterScoreGUI rscg = new RegisterScoreGUI();
+        jdpDesktop.add(rscg);
+        rscg.show();
     }//GEN-LAST:event_jmiAddScoreActionPerformed
 
     private void jmiShowScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiShowScoresActionPerformed
