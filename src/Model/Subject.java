@@ -22,7 +22,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s"),
     @NamedQuery(name = "Subject.findBySubjectID", query = "SELECT s FROM Subject s WHERE s.subjectID = :subjectID"),
-    @NamedQuery(name = "Subject.findByName", query = "SELECT s FROM Subject s WHERE s.name = :name")})
+    @NamedQuery(name = "Subject.findByName", query = "SELECT s FROM Subject s WHERE s.name = :name"),
+    @NamedQuery(name = "Subject.update", query = "UPDATE Subject s SET s.name = :name WHERE s.subjectID = :subjectID")})
 public class Subject implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
