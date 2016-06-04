@@ -32,7 +32,10 @@ public class StudentDAOImpl implements StudentDAO{
 
     @Override
     public List<Student> search(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        q = em.createQuery("SELECT s FROM Student s WHERE s.studentID=:id");
+        q.setParameter("id", id);
+        return q.getResultList();
     }
 
     @Override
@@ -52,8 +55,15 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Override
-    public void update(Student m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Student s) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.createNamedQuery("Student.update", Student.class)
+                .setParameter("firstName", s.getFirstName())
+                .setParameter("lastName", s.getLastName())
+                .setParameter("studentID", s.getStudentID())
+                .executeUpdate();
+        em.getTransaction().commit();
     }
     
 }
