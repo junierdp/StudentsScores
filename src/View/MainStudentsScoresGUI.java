@@ -4,6 +4,9 @@ public class MainStudentsScoresGUI extends javax.swing.JFrame {
 
     public MainStudentsScoresGUI() {
         initComponents();
+        ShowScoreGUI sscg = new ShowScoreGUI();
+        jdpDesktop.add(sscg);
+        sscg.show();
     }
 
     @SuppressWarnings("unchecked")
