@@ -223,10 +223,10 @@ public class ShowScoreGUI extends javax.swing.JInternalFrame {
         int rowSelected = jtScores.getSelectedRow();
         if(rowSelected >= 0){
             int confirmJOP = JOptionPane.showConfirmDialog(null, "Are you sure that you want"
-                    + " delete the score of this student: " + jtScores.getValueAt(row, 3), 
+                    + " delete the score of this student: " + jtScores.getValueAt(rowSelected, 3), 
                     "Confirm",JOptionPane.YES_NO_OPTION);
             if(confirmJOP == 0){
-                Score s = new Score(Integer.parseInt(txtScore.getText()));
+                Score s = new Score(Integer.parseInt(jtScores.getValueAt(rowSelected, 0).toString()));
                 ScoreDAOImpl dao = new ScoreDAOImpl();
                 dao.delete(s);
                 JOptionPane.showMessageDialog(this, "Score deletes", "Delete", JOptionPane.INFORMATION_MESSAGE);
