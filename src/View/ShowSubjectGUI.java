@@ -3,7 +3,6 @@ package View;
 
 import Controller.SubjectDAOImpl;
 import Model.Subject;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -38,8 +37,8 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jmiEliminar = new javax.swing.JMenuItem();
-        jmiModificar = new javax.swing.JMenuItem();
+        jmiDelete = new javax.swing.JMenuItem();
+        jmiModify = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtSubjects = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -54,21 +53,21 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
         btnModify = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        jmiEliminar.setText("Eliminar");
-        jmiEliminar.addActionListener(new java.awt.event.ActionListener() {
+        jmiDelete.setText("Delete");
+        jmiDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiEliminarActionPerformed(evt);
+                jmiDeleteActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jmiEliminar);
+        jPopupMenu1.add(jmiDelete);
 
-        jmiModificar.setText("Modificar");
-        jmiModificar.addActionListener(new java.awt.event.ActionListener() {
+        jmiModify.setText("Modify");
+        jmiModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiModificarActionPerformed(evt);
+                jmiModifyActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(jmiModificar);
+        jPopupMenu1.add(jmiModify);
 
         setClosable(true);
         setIconifiable(true);
@@ -213,13 +212,13 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarActionPerformed
+    private void jmiDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDeleteActionPerformed
         int rowSelected = jtSubjects.getSelectedRow();
         if(rowSelected >= 0){
-            int confirmarJOP = JOptionPane.showConfirmDialog(null, "Are you sure that you want"
+            int confirmJOP = JOptionPane.showConfirmDialog(null, "Are you sure that you want"
                     + " delete the subject: " + jtSubjects.getValueAt(row, 1), 
                     "Confirm",JOptionPane.YES_NO_OPTION);
-            if(confirmarJOP == 0){
+            if(confirmJOP == 0){
                 Subject s = new Subject(Integer.parseInt(jtSubjects.getValueAt(row, 0).toString()),
                                                 jtSubjects.getValueAt(row, 1).toString());
                 SubjectDAOImpl dao = new SubjectDAOImpl();
@@ -231,7 +230,7 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
         else {
             JOptionPane.showMessageDialog(null, "Select a subject.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jmiEliminarActionPerformed
+    }//GEN-LAST:event_jmiDeleteActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         if(rbID.isSelected()){
@@ -280,7 +279,7 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnModifyActionPerformed
 
-    private void jmiModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarActionPerformed
+    private void jmiModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModifyActionPerformed
         row = jtSubjects.getSelectedRow();
         if(row >= 0){
             txtSubjectName.setText(jtSubjects.getValueAt(row, 1).toString());
@@ -288,7 +287,7 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
         else {
             JOptionPane.showMessageDialog(null, "Select a row", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jmiModificarActionPerformed
+    }//GEN-LAST:event_jmiModifyActionPerformed
 
     private void rbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbIDActionPerformed
         // TODO add your handling code here:
@@ -319,8 +318,8 @@ public class ShowSubjectGUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenuItem jmiEliminar;
-    private javax.swing.JMenuItem jmiModificar;
+    private javax.swing.JMenuItem jmiDelete;
+    private javax.swing.JMenuItem jmiModify;
     private javax.swing.JTable jtSubjects;
     private javax.swing.JRadioButton rbID;
     private javax.swing.JTextField txtSearch;
