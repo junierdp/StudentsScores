@@ -2,7 +2,6 @@ package Controller;
 
 import Interfaces.ScoreDAO;
 import Model.Score;
-import Model.Subject;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,8 +45,14 @@ public class ScoreDAOImpl implements ScoreDAO {
     }
 
     @Override
-    public void update(Score m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Score s) {
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.createNamedQuery("Score.update", Score.class)
+                .setParameter("score", s.getScore())
+                .setParameter("id", s.getScoreID())
+                .executeUpdate();
+        em.getTransaction().commit();
     }
     
     public List<Score> searchForEnrollment(String enrollment){
