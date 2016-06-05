@@ -24,8 +24,11 @@ public class ScoreDAOImpl implements ScoreDAO {
     }
 
     @Override
-    public List<Score> search(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Score> search(int score) {
+        em = emf.createEntityManager();
+        q = em.createQuery("SELECT s FROM Score s WHERE s.score = :score");
+        q.setParameter("score", score);
+        return q.getResultList();
     }
 
     @Override
