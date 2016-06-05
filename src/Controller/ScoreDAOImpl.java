@@ -2,6 +2,7 @@ package Controller;
 
 import Interfaces.ScoreDAO;
 import Model.Score;
+import Model.Subject;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,8 +37,12 @@ public class ScoreDAOImpl implements ScoreDAO {
     }
 
     @Override
-    public void delete(Score m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Score s) {
+        em = emf.createEntityManager();
+        s = em.find(Score.class, s.getScoreID());
+        em.getTransaction().begin();
+        em.remove(s);
+        em.getTransaction().commit();
     }
 
     @Override
