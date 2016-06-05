@@ -30,7 +30,9 @@ public class ScoreDAOImpl implements ScoreDAO {
 
     @Override
     public List<Score> showAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        q = em.createNamedQuery("Score.findAll");
+        return q.getResultList();
     }
 
     @Override
@@ -43,4 +45,9 @@ public class ScoreDAOImpl implements ScoreDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public List<Score> searchForEnrollment(String enrollment){
+        em = emf.createEntityManager();
+        q = em.createNamedQuery("Score.findByEnrollment").setParameter("enrollment", enrollment);
+        return q.getResultList();
+    }
 }
